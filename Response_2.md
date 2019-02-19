@@ -2,7 +2,8 @@
 
 ## Response to reading
 
-#### This chapter generally discusses how user experience design is like when it comes to Internet of Things. It emphasizes the point
+#### 
+This chapter generally discusses how user experience design is like when it comes to Internet of Things. It emphasizes the point
 that the ultimate goal of manufacturers of IOT devices is for consumers to feel like they are using a coherent service rather than
 using different user interfaces that are disjointed. And hence, it is important to think about not just usability but interusability
 as well. And also while applying IOT in our day to day lives, we may encounter different challenges which can range from random glitches
