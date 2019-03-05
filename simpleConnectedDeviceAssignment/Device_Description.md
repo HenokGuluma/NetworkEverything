@@ -6,7 +6,7 @@ and helps keep the house safe.
 
 The first part of the project is relatively easier as it just requires a button that sends signals to an audio output device 
 and a smartphone device. The second part involves using temperature sensors and configuring them to detect temperatures above
-a certain value and send a signal to a smartphone. 
+a certain value and send a signal to a smartphone. An ambitious idea would be to make the system let the smartphone send a signal back to turn off the appliances. 
 
 This device contains interoperable and interusable systems that are fairly easy to use and rarely interfere with each other. It 
 is practical in terms of solving some common issues everyone faces in their daily lives. 
