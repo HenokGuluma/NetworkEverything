@@ -92,14 +92,14 @@ void loop() {
     Serial.println("button state changed; sending new state");
     Udp.beginPacket(receivingDeviceAddress, receivingDevicePort);
     Udp.write(buttonStatebell);
-    Udp.endPacket();
-
+    
     lastButtonStatebell = buttonStatebell;
     
   }
   
   // IN THIS BLOCK, IF THE TEMPERATURE SENSOR DETECTS A TEMPERATURE ABOVE A CERTAIN VALUE, IT WILL CHANGE THE STATE OF A VARIABLE. AFTER
   // THAT IT WILL BE WRITTEN IN THE UDP AND SENT. 
+  Udp.endPacket();
 
   // once we send a packet to the server, it might
   // respond, so read it
