@@ -7,7 +7,7 @@
   by Michael Shiloh
   
   Modified by:
-  Henok Guluma and Alemayehu Abebe
+  Henok Guluma
 */
 
 #include <SPI.h>
