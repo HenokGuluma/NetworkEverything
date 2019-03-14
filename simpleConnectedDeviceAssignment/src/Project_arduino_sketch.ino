@@ -35,7 +35,7 @@ const int yellow = 7;
 const int green= 8;
 
 
-int Vo;
+int Vo; //Voltage output
 int Tmax = 40;
 float R1 = 10000;
 float logR2, R2, T;
