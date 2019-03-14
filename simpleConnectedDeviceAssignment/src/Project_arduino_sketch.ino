@@ -28,17 +28,25 @@ char packetBuffer[255]; //buffer to hold incoming packet
 WiFiUDP Udp;
 
 const int DOORBELL_PIN = 3; // transmitting
-const int TEMP_PIN = 4;
+const int ThermistorPin = 0;
 
 const int blue = 6; // receiving
 const int yellow = 7;
 const int green= 8;
 
 
+int Vo;
+int Tmax = 40;
+float R1 = 10000;
+float logR2, R2, T;
+float c1 = 1.009249522e-03, c2 = 2.378405444e-04, c3 = 2.019202697e-07;
+
+
 // remember the button state so we only send
 // when the state changes
-boolean buttonState;
-boolean lastButtonState;
+boolean buttonStatebell;
+boolean buttonStatetemp
+boolean lastButtonStatebell;
 
 void setup() {
   //Initialize serial and wait for port to open:
@@ -96,6 +104,23 @@ void loop() {
     lastButtonStatebell = buttonStatebell;
     
   }
+  
+  
+   Vo = analogRead(ThermistorPin);
+  R2 = R1 * (1023.0 / (float)Vo - 1.0);
+  logR2 = log(R2);
+  T = (1.0 / (c1 + c2*logR2 + c3*logR2*logR2*logR2));
+  T = T - 273.15;
+  if(T > Tmax)
+  {
+    buttonStatetemp = 1;
+    Udp.write(buttonStatetemp);
+  }
+  
+  //Serial.print("Temperature: "); 
+  //Serial.print(T);
+ 
+
   
   // IN THIS BLOCK, IF THE TEMPERATURE SENSOR DETECTS A TEMPERATURE ABOVE A CERTAIN VALUE, IT WILL CHANGE THE STATE OF A VARIABLE. AFTER
   // THAT IT WILL BE WRITTEN IN THE UDP AND SENT. 
@@ -181,3 +206,9 @@ void printWiFiStatus() {
   Serial.print(rssi);
   Serial.println(" dBm");
 }
+
+
+
+
+
+ 
