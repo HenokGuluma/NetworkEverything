@@ -26,7 +26,7 @@ webServer.on('connection', (socket) => {
 
 ///--------------------
 
-const { createServer } = require('net');
+/*const { createServer } = require('net');
 
 const arduinoServer = createServer();
 
@@ -51,4 +51,25 @@ arduinoServer.on('connection', (socket) => {
 arduinoServer.listen(ARDUINO_PORT, () => {
   console.log('arduinoServer: Listening on port: ' + ARDUINO_PORT )
   console.log('arduinoServer: Listening at address: ' + arduinoServer.address() )
-})
+})  */
+
+
+
+/* Websocket event handler */
+
+webSocket.on('connect', (socket) => {
+    console.log('Web server socket: Client connected');
+
+    // if you get the 'slider value' message
+    socket.on('greenled', (data) => {
+       console.log('Web server socket: received slider value message: ' + data);
+    });
+
+    // if you get the 'disconnect' message, say the user disconnected
+    socket.on('disconnect', () => {
+      console.log('Web server socket: user disconnected');
+  });
+});
+
+
+
