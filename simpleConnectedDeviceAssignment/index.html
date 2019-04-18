@@ -1,17 +1,41 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf8"/>
-        <title>Trivial Connected Device Control Panel</title>
-        <script src="client.js"></script>
-    </head>
-    <body>
-        <button onclick="ledON()">LED ON</button>
+	<head>
+		<link rel="shortcut icon" href="">
+		<meta charset="utf8"/>
+		<title>Trivial Connected Device Control Panel</title>
+		<<script src="/socket.io/socket.io.js"></script>
+		<script src="client.js"></script>
+	</head>
+	<header>
+		<h1>Home Control System</h1> 
 
-        <button onclick="ledOFF()">LED OFF</button>
-        
-        <!-- Aside from buttons for turning LED on or off, the body contains a message that 
-              lets the user know whether a warning signal is received or not--> 
-
-    </body>
+	<body background="kitchen2.jpg">
+		<table style="width:100%; max-width: 500px; height:300px;">
+			<tr>
+				<td>
+					<button onclick="redLEDOn()">Open Door</button>
+				</td>
+				<td>
+					<button onclick="redLEDOff()">Close Door</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="greenLEDOn()">Stove On</button>
+				</td>
+				<td>
+					<button onclick="greenLEDOff()">Stove Off</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="blueLEDOn()">Hot Plate On</button>
+				</td>
+				<td>
+					<button onclick="blueLEDOff()">Hot Plate Off</button>
+				</td>
+			</tr>
+		</table>
+	</body>
 </html>

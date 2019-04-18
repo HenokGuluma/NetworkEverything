@@ -1,10 +1,49 @@
-function ledON() {
-    console.log ("sending a message to turn on the LED");
-    
-    // send a packet which will be read by the arduino and assigns variables a value of high.  
+/* 
+This is the websocket library which will allow us to send messages
+back to the web server 
+*/
+var socket = io();
+
+socket.on('event', (data) => {
+	console.log('received data from webserver: ' + data);
+});
+
+socket.on('buttonPressed', (data) => {
+	console.log('received button pressed event from webserver: ' + data);
+});
+
+socket.on('buttonReleased', (data) => {
+	console.log('received button released from webserver: ' + data);
+});
+
+socket.on('temperature high', (data) => {
+	console.log('received temperature changed from webserver: ' + data);
+});
+
+socket.on('temperature normal', (data) => {
+	console.log('received normal temperature from webserver: ' + data);
+});
+
+function redLEDOn() {
+  socket.emit('redLEDOn'); 
 }
 
-function ledOFF() {
-    console.log ("sending a message to turn off the LED");
-    // send a packet which will be read by the arduino and assigns variables a value of low. 
+function redLEDOff() {
+  socket.emit('redLEDOff');
+}
+
+function greenLEDOn() {
+  socket.emit('greenLEDOn'); 
+}
+
+function greenLEDOff() {
+  socket.emit('greenLEDOff');
+}
+
+function blueLEDOn() {
+  socket.emit('blueLEDOn'); 
+}
+
+function blueLEDOff() {
+  socket.emit('blueLEDOff');
 }
