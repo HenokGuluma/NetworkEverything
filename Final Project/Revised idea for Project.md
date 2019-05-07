@@ -11,10 +11,10 @@ device which basically makes the LEDs blink to signal  that the volume is too hi
     
 System components: 
 
-Arduino MKR1010
-Server.js
-Client.js
-Index.html
-Probably some CSS for the web design
-Music API
-Potentiometers(knobs), buttons and LEDs
+###Arduino MKR1010
+###Server.js
+###Client.js
+###Index.html
+###Probably some CSS for the web design
+###Music API
+###Potentiometers(knobs), buttons and LEDs
